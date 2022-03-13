@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+main() {
+	int n, a;
+
+	scanf("%d", &n);
+	
+	if (n < 10)
+		n *= 10;
+
+	int i = 0;
+	int tmp = n;
+
+	while (1) {
+		a = tmp % 10;
+		int cycle = a + (tmp/ 10);
+		
+		i++;
+		tmp = (a * 10) + (cycle % 10);
+		if (tmp == n)
+			break;
+	}
+	printf("%d\n", i);
+}
