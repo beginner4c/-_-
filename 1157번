@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 1000002
+#define LEN 26
+
+int re_max(int count[LEN]) {
+	int tmp[LEN];
+	for (int i = 0; i < LEN; i++)
+		tmp[i] = count[i];
+	int max;
+
+	for (int i = 0; i < LEN; i++) {
+		for (int j = 0; j < LEN; j++) {
+			if (tmp[i] < tmp[j]) {
+				int tmp2 = tmp[i];
+				tmp[i] = tmp[j];
+				tmp[j] = tmp[i];
+			}
+		}
+	}
+
+	return max = tmp[0];
+}
+
+main() {
+
+	int count[LEN] = {0,};
+	char show[MAX];
+	fgets(show, sizeof(show), stdin);
+
+	for (int i = 0; show[i] != '\n'; i++) {
+		if ((int)show[i] < 97)
+			count[(int)show[i] - 65]++;
+		else if ((int)show[i] >= 97)
+			count[(int)show[i] - 97]++;
+	}
+
+	int max = re_max(count);
+	int stack = 0;
+	int num;
+
+	for (int i = 0; i < LEN; i++) {
+		if (max == count[i]) {
+			stack++;
+			num = i;
+		}
+	}
+
+	if (stack > 1)
+		printf("?");
+	else
+		printf("%c", num + 65);
+}
