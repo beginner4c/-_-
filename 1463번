@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int m(int a, int b) {
+	if (a > b)
+		return b;
+	else
+		return a;
+}
+
+main() {
+	int N;
+	scanf("%d", &N);
+	int* count = (int*)malloc(sizeof(int) * N + 4);
+	count[1] = 0;
+
+	for (int i = 2; i <= N; i++) {
+		count[i] = count[i - 1] + 1;
+		if (i % 2 == 0)
+			count[i] = m(count[i], count[i / 2] + 1);
+		if (i % 3 == 0)
+			count[i] = m(count[i], count[i / 3] + 1);
+	}
+	printf("%d", count[N]);
+}
