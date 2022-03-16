@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+main() {
+	int N, L;
+	scanf("%d %d", &N, &L);
+	int flut[1000];
+
+	for (int i = 0; i < N; i++) {
+		scanf("%d", &flut[i]);
+	}
+
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+			if (flut[i] < flut[j]) {
+				int tmp = flut[i];
+				flut[i] = flut[j];
+				flut[j] = tmp;
+			}
+		}
+	}
+	int tmp = flut[0];
+	int count = 1;
+	for(int i = 0; i< N;i++)
+		if (tmp + L - 1 < flut[i]) {
+			tmp = flut[i];
+			count++;
+		}
+
+	printf("%d", count);
+}
