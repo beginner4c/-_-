@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+int even_point(int a, int b, int c) {
+	if (b >= c)
+		return -1;
+	else {
+		int d = 0;
+		d = a / (c - b) + 1;
+		return d;
+	}
+}
+
+main() {
+	int A, B, C, break_even;
+	scanf("%d %d %d", &A, &B, &C);
+
+	break_even = even_point(A, B, C);
+
+	printf("%d", break_even);
+}
