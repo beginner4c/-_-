@@ -1,0 +1,29 @@
+#include<stdio.h>
+
+int show(int a, int b) {
+	int c;
+	while (b) { // 나머지가 0이 될 때까지 반복
+		c = a % b; // 나머지 저장
+		a = b;
+		b = c;
+	}
+	return a;
+}
+
+main() {
+	int T;
+	scanf("%d", &T);
+
+	int a, b;
+	int c[1000] = {0,};
+
+	for (int i = 0; i < T; i++) {
+		scanf("%d %d", &a, &b);
+		if (a >= b) // a와 b 크기 비교
+			c[i] = (a / show(a, b)) * (b / show(a, b)) * show(a,b); // 배열에 최소공배수 저장
+		else
+			c[i] = (a / show(b, a)) * (b / show(b, a)) * show(b,a);
+	}
+	for (int i = 0; i < T; i++)
+		printf("%d\n", c[i]);
+}
