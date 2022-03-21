@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+main() {
+	int N, K;
+	scanf("%d %d", &N, &K);
+	int show = 0;
+	int count = 0;
+
+	for (int i = 1; i <= N; i++) {
+		if (N % i == 0) { // 약수 구하기
+			show = i;
+			count += 1;
+		}
+		if (count == K) { // 카운터가 K와 같아지면 저장한 약수를 출력 후 종료
+			printf("%d\n", show);
+			return 0;
+		}
+	}
+	printf("0\n"); // 약수가 존재하지 않을 때
+}
