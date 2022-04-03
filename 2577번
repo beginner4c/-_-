@@ -1,0 +1,21 @@
+#include<stdio.h>
+
+main() {
+	int a, b, c;
+	int j;
+	int result = 0;//곱한 값
+	int arr[10] = { 0, };//0~9까지 몇개씩인지 count
+	scanf("%d", &a);
+	scanf("%d", &b);
+	scanf("%d", &c);
+	result = a * b * c;
+	int i = 0;
+	while (result > 0)
+	{
+		i = result % 10;
+		result = result / 10;
+		arr[i]++;
+	}
+	for (j = 0; j < 10; j++)
+		printf("%d\n", arr[j]);
+}
