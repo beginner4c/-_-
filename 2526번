@@ -1,0 +1,11 @@
+#include<stdio.h>
+
+main() {
+	int n, p, a[97] = {0, }, c = 0, i;
+	scanf("%d %d", &n, &p);
+	
+	for (i = n % p; !a[i]; i = i * n % p)
+		a[i] = ++c;
+	
+	printf("%d", c - a[i] + 1);
+}
