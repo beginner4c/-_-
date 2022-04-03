@@ -1,0 +1,21 @@
+#include<stdio.h>
+
+main() {
+	int A, B, C;
+
+	scanf("%d %d", &A, &B);
+	scanf("%d", &C);
+
+	B += C;
+
+	if (B >= 60) {
+		while (B >= 60) {
+			B -= 60;
+			A += 1;
+			if (A >= 24)
+				A = 0;
+		}
+	}
+
+	printf("%d %d", A, B);
+}
