@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+main() {
+	int T;
+	scanf("%d", &T);
+
+	while (T != 0) {
+		
+		int R;
+		scanf(" %d", &R);
+		getchar();
+
+		char S[22];
+		fgets(S, sizeof(S), stdin);
+
+
+		for (int i = 0; S[i] != '\n'; i++) {
+			for (int j = 0; j < R; j++) {
+				printf("%c", S[i]);
+			}
+		}
+		printf("\n");
+		T--;
+	}
+}
