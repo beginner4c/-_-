@@ -1,0 +1,7 @@
+#include<stdio.h>
+
+int main()
+{
+    printf("50\n");
+    printf("kids1357");
+}
