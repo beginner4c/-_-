@@ -1,0 +1,31 @@
+#include<stdio.h>
+#define LEN 26
+
+main() {
+
+	char word[17];
+	fgets(word, sizeof(word), stdin);
+	int num = 3;
+	int sum = 0;
+	int alpha[LEN]; // 알파벳마다 시간 부여
+
+	for (int i = 0; i < LEN;) { // 시간이 8, 10 일 때는 알파벳 4 개 씩 시간 부여
+		for (int j = 0; j < 3 && i < LEN; j++) {
+			alpha[i] = num;
+			i++;
+		}
+		if (num == 8 || num == 10) {
+			alpha[i] = num;
+			i++;
+		}
+		num++;
+	}
+	
+	// printf("%d", 'A'); A = 65
+
+	for (int i = 0; word[i] != '\n'; i++) {
+		sum += alpha[(int)word[i] - 65];
+	}
+
+	printf("%d", sum);
+}
